@@ -5,12 +5,6 @@ namespace FoodSaverApi.Models
 {
     public class FoodSaverApiContext : DbContext
     {
-        public FoodSaverApiContext(DbContextOptions<FoodSaverApiContext> options)
-            : base(options)
-        {
-
-        }
-
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<IngredientRecipe> IngredientRecipes { get; set; }

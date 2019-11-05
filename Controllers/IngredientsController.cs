@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using FoodSaverApi.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace FoodSaverApi.Controllers
 {
     [Route("api/[controller]")]
@@ -16,39 +17,42 @@ namespace FoodSaverApi.Controllers
         {
             _db = db;
         }
-
+        
         // GET api/ingredients
+        // [HttpGet]
+        // public ActionResult<IEnumerable<Ingredient>> Get()
+        // {
+        //     return _db.Ingredients.ToList();
+        // }
+        // Get ingredients/?ingredientName
         [HttpGet]
-        public ActionResult<IEnumerable<Ingredient>> Get()
+        public ActionResult<IEnumerable<Ingredient>> Get(string ingredientName, decimal ingredientPrice, string ingredientSubstitution)
         {
-            return _db.Ingredients.ToList();
-        }
+            var query = _db.Ingredients.AsQueryable();
 
-        // POST api/ingredients
-        [HttpPost]
-        public void Post([FromBody] Ingredient ingredient)
-        {
-            _db.Ingredients.Add(ingredient);
-            _db.SaveChanges();
+            if (ingredientName != null)
+            {
+                query = query.Where(entry => entry.IngredientName == ingredientName);
+            }
+
+            if (ingredientPrice > 0)
+            {
+                query = query.Where(entry => entry.IngredientPrice == ingredientPrice);
+            }
+
+            if (ingredientSubstitution != null)
+            {
+                query = query.Where(entry => entry.IngredientSubstitution == ingredientSubstitution);
+            }
+
+            return query.ToList();
         }
+        // Get api/ingredients/ingredientId
         [HttpGet("{id}")]
         public ActionResult<Ingredient> Get(int id)
         {
             return _db.Ingredients.FirstOrDefault(entry => entry.IngredientId == id);
         }
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Ingredient ingredient)
-        {
-            ingredient.IngredientId = id;
-            _db.Entry(ingredient).State = EntityState.Modified;
-            _db.SaveChanges();
-        }
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            var ingredientToDelete = _db.Ingredients.FirstOrDefault(entry => entry.IngredientId == id);
-            _db.Ingredients.Remove(ingredientToDelete);
-            _db.SaveChanges();
-        }
+        
     }
 }
