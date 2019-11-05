@@ -17,15 +17,19 @@ namespace FoodSaverApi.Controllers
             _db = db;
         }
        
-        // Get recipes/?recipeName
+        // Get api/recipes/?recipename
         [HttpGet]
-        public ActionResult<IEnumerable<Recipe>> Get(string recipeName, string directions, string nutritionInfo, string recipeTips)
+        public ActionResult<IEnumerable<Recipe>> Get(string recipeName, decimal pricePerServing, string directions, string nutritionInfo, string recipeTips)
         {
             var query = _db.Recipes.AsQueryable();
 
             if (recipeName != null)
             {
                 query = query.Where(entry => entry.RecipeName == recipeName);
+            }
+            if (pricePerServing > 0)
+            {
+                query = query.Where(entry => entry.PricePerServing == pricePerServing);
             }
 
             if (directions != null)
@@ -43,7 +47,7 @@ namespace FoodSaverApi.Controllers
             }
             return query.ToList();
         }
-        // get api/recipes/recipeId
+        // get api/recipes/recipeid
         [HttpGet("{id}")]
         public ActionResult<Recipe> Get(int id)
         {

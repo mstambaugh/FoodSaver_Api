@@ -17,16 +17,9 @@ namespace FoodSaverApi.Controllers
         {
             _db = db;
         }
-        
-        // GET api/ingredients
-        // [HttpGet]
-        // public ActionResult<IEnumerable<Ingredient>> Get()
-        // {
-        //     return _db.Ingredients.ToList();
-        // }
-        // Get ingredients/?ingredientName
+        // get api/ingredients/?ingredientPrice
         [HttpGet]
-        public ActionResult<IEnumerable<Ingredient>> Get(string ingredientName, decimal ingredientPrice, string ingredientSubstitution)
+        public ActionResult<IEnumerable<Ingredient>> Get(string ingredientName, int ingredientQuantity, decimal ingredientPrice, string ingredientSubstitution)
         {
             var query = _db.Ingredients.AsQueryable();
 
@@ -34,7 +27,10 @@ namespace FoodSaverApi.Controllers
             {
                 query = query.Where(entry => entry.IngredientName == ingredientName);
             }
-
+            if (ingredientQuantity > 0)
+            {
+                query = query.Where(entry => entry.IngredientQuantity == ingredientQuantity);
+            }
             if (ingredientPrice > 0)
             {
                 query = query.Where(entry => entry.IngredientPrice == ingredientPrice);
@@ -44,9 +40,9 @@ namespace FoodSaverApi.Controllers
             {
                 query = query.Where(entry => entry.IngredientSubstitution == ingredientSubstitution);
             }
-
             return query.ToList();
         }
+
         // Get api/ingredients/ingredientId
         [HttpGet("{id}")]
         public ActionResult<Ingredient> Get(int id)
