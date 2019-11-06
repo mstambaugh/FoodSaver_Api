@@ -2,14 +2,16 @@
 using FoodSaverApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoodSaverAPI.Migrations
 {
     [DbContext(typeof(FoodSaverApiContext))]
-    partial class FoodSaverApiContextModelSnapshot : ModelSnapshot
+    [Migration("20191106054226_Update3")]
+    partial class Update3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,7 +89,7 @@ namespace FoodSaverAPI.Migrations
                             IngredientId = 7,
                             IngredientName = "7-9oz box white cheddar macaroni and cheese",
                             IngredientPrice = 0.75m,
-                            IngredientQuantity = 2,
+                            IngredientQuantity = 1,
                             IngredientSubstitution = "any flavor boxed macaroni and cheese"
                         },
                         new
@@ -101,25 +103,17 @@ namespace FoodSaverAPI.Migrations
                         new
                         {
                             IngredientId = 9,
-                            IngredientName = "1/2 gallon 2% milk",
-                            IngredientPrice = 1.75m,
+                            IngredientName = "7-9oz box white cheddar macaroni and cheese",
+                            IngredientPrice = 0.75m,
                             IngredientQuantity = 1,
-                            IngredientSubstitution = "any variety of milk or non-dairy milk"
+                            IngredientSubstitution = "any 7-9oz boxed macaroni and cheese"
                         },
                         new
                         {
                             IngredientId = 10,
-                            IngredientName = "8oz white cheddar cheese block",
-                            IngredientPrice = 3.36m,
-                            IngredientQuantity = 1,
-                            IngredientSubstitution = "any variety of cheddar cheese- save by avoiding pre-shredded options"
-                        },
-                        new
-                        {
-                            IngredientId = 11,
                             IngredientName = "5oz can chunk light tuna in water",
                             IngredientPrice = 0.75m,
-                            IngredientQuantity = 2,
+                            IngredientQuantity = 1,
                             IngredientSubstitution = "5oz can tuna of any variety"
                         });
                 });
@@ -201,12 +195,6 @@ namespace FoodSaverAPI.Migrations
                             IngredientRecipeId = 10,
                             IngredientId = 10,
                             RecipeId = 2
-                        },
-                        new
-                        {
-                            IngredientRecipeId = 11,
-                            IngredientId = 11,
-                            RecipeId = 2
                         });
                 });
 
@@ -236,21 +224,21 @@ namespace FoodSaverAPI.Migrations
                         {
                             RecipeId = 1,
                             Directions = "1) Combine ground beef, onion, and garlic in a large skillet on medium heat. Stir regularly until meat is brown and vegetables are tender. 2) Stir diced tomatoes and tomato sauce into the pan. Season with salt and pepper (optional: add 1-2 teaspoons of italian seasoning, basil, or oregano) and simmer on low 3) Simmer for 1 hour on low heat, stirring occasionally. 2) With 20 minues left, bring a large pot of water to boil and cook pasta according to box instructions. 3) Drain excess liquid from saucepan, strain pasta, and serve.",
-                            NutritionInfo = "Over 20 grams of protein per serving. Approx. 10 grams of fiber per serving. Less than 10g of sugar per serving.",
+                            NutritionInfo = "Over 20 grams of protein per serving. 10 grams of fiber per serving. Less than 10g of sugar per serving.",
                             PrepTime = "Prep: 15 min Total: 1 hour and 15 min",
                             PricePerServing = 1.00m,
-                            RecipeName = "Spaghetti with Beef Marinara",
-                            RecipeTips = "For an even healthier variation, trying mixing in fresh or frozen vegetables like broccoli, spinach, Refrigerate leftover sauce and pasta in separate containers for better flavor. Leftover sauce can be frozen for upwards of 2 months in sealed ziploc bags and reheated from frozen on the stovetop."
+                            RecipeName = "Spaghetti and Beef Marinara",
+                            RecipeTips = "Refrigerate leftover sauce and pasta in separate containers for better flavor. Leftover sauce can be frozen for upwards of 2 months in sealed ziploc bags and reheated from frozen on the stovetop."
                         },
                         new
                         {
                             RecipeId = 2,
-                            Directions = "1)Boil macaroni according to package instructions. 2) While cooking macaroni, steam brocolli in microwave or covered pot with vegetable steamer on the stovetop until tender. 2) Open tuna and drain excess water from both the tuna and steamed broccoli. 3) Strain macaroni and mix in steamed brocolli, cheesepacket, 1 handful per serving of grated cheddar cheese, a splash of milk, and tuna. 4) Return this mixture to the microwave or stovetop and heat on medium,stirring frequently, until cheese is completely melted (optional: sprinkle grated cheese on top in a casserole pan and bake at 300 degrees until cheese is slightly browned). 5) Season sparingly with salt and pepper(optional: try with either creole seasoning or lemon pepper. Just make sure to add before salt, as both seasoning mixes usually contain salt).",
-                            NutritionInfo = "Over 20g of protein per serving. Less than 6g of sugar per serving. Great source of calcium and iron.",
+                            Directions = "1) Steam bagged brocolli in microwave or in a covered pot with a steamer on the stovetop until tender. 2) Open and strain excess liquid from tuna 2) Boil macaroni according to package instructions 3) Strain macaroni and combine with steamed brocolli, cheesepacket, extra cheddar cheese, milk, and tuna. 4) Return macaroni with mixins to the microwave or pot on stovetop and heat on low until cheese is completely melted (optional: add cheese on top of mixture of other ingredients in a casserole pan and bake at 300 degrees until cheese is slightly browned). 5) Season with salt and pepper to taste (optional: try with creole seasoning or lemon pepper ",
+                            NutritionInfo = " ",
                             PrepTime = "Prep: 5 min Total: 20 min",
-                            PricePerServing = 2.28m,
-                            RecipeName = "Speedy Mac and Cheese Tuna Casserole",
-                            RecipeTips = "This recipe will leave you with some leftover cheese and milk; double the recipe size to use up more of these two ingredients, or save for breakfasts and snacks. Refrigerate leftover casserole for up to four days in a sealed container."
+                            PricePerServing = 2.25m,
+                            RecipeName = "Speedy Mac n' Cheese Tuna Casserole",
+                            RecipeTips = " "
                         });
                 });
 
