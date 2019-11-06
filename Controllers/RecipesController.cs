@@ -19,13 +19,17 @@ namespace FoodSaverApi.Controllers
        
         // Get api/recipes/?recipename
         [HttpGet]
-        public ActionResult<IEnumerable<Recipe>> Get(string recipeName, decimal pricePerServing, string prepTime, string directions, string nutritionInfo, string recipeTips)
+        public ActionResult<IEnumerable<Recipe>> Get(string recipeName, int baseServings, decimal pricePerServing, string prepTime, string directions, string nutritionInfo, string recipeTips)
         {
             var query = _db.Recipes.AsQueryable();
 
             if (recipeName != null)
             {
                 query = query.Where(entry => entry.RecipeName == recipeName);
+            }
+            if (baseServings > 0)
+            {
+                query = query.Where(entry => entry.BaseServings == baseServings);
             }
             if (pricePerServing > 0)
             {
