@@ -49,6 +49,5 @@ namespace FoodSaverApi.Controllers
         {
             return _db.Ingredients.FirstOrDefault(entry => entry.IngredientId == id);
         }
-        
     }
 }

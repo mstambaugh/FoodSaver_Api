@@ -16,13 +16,20 @@ namespace FoodSaverApi.Controllers
         {
             _db = db;
         }
-       
+
         // Get api/recipes/?recipename
         [HttpGet]
-        public ActionResult<IEnumerable<Recipe>> Get(string recipeName, int baseServings, decimal pricePerServing, string prepTime, string directions, string nutritionInfo, string recipeTips)
+        public ActionResult<IEnumerable<Recipe>> Get(string recipeName, int baseServings, decimal costPerServing, string prepTime, string directions, string nutritionInfo, string recipeTips)
         {
             var query = _db.Recipes.AsQueryable();
+        
+            // var recipes = _db.Recipes    
+            //     .Include(recipe => recipe.Ingredients)
+            //     .ThenInclude(join => join.Ingredient);
+               
 
+            // return query.ToList();
+        
             if (recipeName != null)
             {
                 query = query.Where(entry => entry.RecipeName == recipeName);
@@ -31,9 +38,9 @@ namespace FoodSaverApi.Controllers
             {
                 query = query.Where(entry => entry.BaseServings == baseServings);
             }
-            if (pricePerServing > 0)
+            if (costPerServing > 0)
             {
-                query = query.Where(entry => entry.CostPerServing == pricePerServing);
+                query = query.Where(entry => entry.CostPerServing == costPerServing);
             }
             if (prepTime != null)
             {
@@ -54,6 +61,8 @@ namespace FoodSaverApi.Controllers
                 query = query.Where(entry => entry.RecipeTips == recipeTips);
             }
             return query.ToList();
+
+            //  recipes.ToList();
         }
         // get api/recipes/recipeid
         [HttpGet("{id}")]
@@ -61,6 +70,5 @@ namespace FoodSaverApi.Controllers
         {
             return _db.Recipes.FirstOrDefault(entry => entry.RecipeId == id);
         }
-        
     }
 }

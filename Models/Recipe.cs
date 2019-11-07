@@ -16,7 +16,7 @@ namespace FoodSaverApi.Models
         public string Directions { get; set; }
         public string NutritionInfo { get; set; }
         public string RecipeTips { get; set; }
-        public ICollection<IngredientRecipe> Ingredients { get; }
+        public ICollection<IngredientRecipe> Ingredients { get; set; }
         
     }
 }
