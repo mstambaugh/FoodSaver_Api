@@ -10,6 +10,7 @@ namespace FoodSaverApi.Models
         }
         public int RecipeId { get; set; }
         public string RecipeName { get; set; }
+        public string RecipePhoto { get; set; }
         public int BaseServings { get; set; }
         public decimal CostPerServing { get; set; }
         public string PrepTime { get; set; }
