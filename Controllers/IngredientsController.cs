@@ -52,12 +52,5 @@ namespace FoodSaverApi.Controllers
                 .FirstOrDefault(x => x.IngredientId == id);
             return ingredient;
         }
-
-        // Get api/ingredients/ingredientId
-        // [HttpGet("{id}")]
-        // public ActionResult<Ingredient> Get(int id)
-        // {
-        //     return _db.Ingredients.FirstOrDefault(entry => entry.IngredientId == id);
-        // }
     }
 }
