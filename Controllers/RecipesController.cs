@@ -22,11 +22,7 @@ namespace FoodSaverApi.Controllers
         public ActionResult<IEnumerable<Recipe>> Get(string recipeName, int baseServings, decimal costPerServing, string prepTime, string directions, string nutritionInfo, string recipeTips)
         {
             var query = _db.Recipes.AsQueryable();
-        
-            // var recipes = _db.Recipes    
-            //     .Include(recipe => recipe.Ingredients)
-            //     .ThenInclude(join => join.Ingredient);
-               
+            
 
             // return query.ToList();
         
@@ -70,5 +66,6 @@ namespace FoodSaverApi.Controllers
         {
             return _db.Recipes.FirstOrDefault(entry => entry.RecipeId == id);
         }
+        
     }
 }

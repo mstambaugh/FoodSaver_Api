@@ -42,12 +42,22 @@ namespace FoodSaverApi.Controllers
             }
             return query.ToList();
         }
-
-        // Get api/ingredients/ingredientId
         [HttpGet("{id}")]
         public ActionResult<Ingredient> Get(int id)
         {
-            return _db.Ingredients.FirstOrDefault(entry => entry.IngredientId == id);
+            System.Console.WriteLine(id);
+            var ingredient = _db.Ingredients
+                .Include(x => x.Recipes)
+                .ThenInclude(x => x.Recipe)
+                .FirstOrDefault(x => x.IngredientId == id);
+            return ingredient;
         }
+
+        // Get api/ingredients/ingredientId
+        // [HttpGet("{id}")]
+        // public ActionResult<Ingredient> Get(int id)
+        // {
+        //     return _db.Ingredients.FirstOrDefault(entry => entry.IngredientId == id);
+        // }
     }
 }
