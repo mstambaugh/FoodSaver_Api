@@ -2,14 +2,16 @@
 using FoodSaverApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoodSaverAPI.Migrations
 {
     [DbContext(typeof(FoodSaverApiContext))]
-    partial class FoodSaverApiContextModelSnapshot : ModelSnapshot
+    [Migration("20191107213708_Imageupdate2")]
+    partial class Imageupdate2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -553,7 +555,7 @@ namespace FoodSaverAPI.Migrations
                             NutritionInfo = "25g of protein per serving. About 10 grams of fiber per serving. Very high in iron and calcium.",
                             PrepTime = "Prep: 10 min. Total: 40 min. ",
                             RecipeName = "Beef Chili",
-                            RecipePhoto = "https://i.imgur.com/fWlAjFV.jpg",
+                            RecipePhoto = "https://i.imgur.com/aGgA4HF.jpg",
                             RecipeTips = "Leftover chili can be stored in the refrigerator for up to five days can be frozen for upwards of 2 months in sealed ziploc bags and reheated from frozen on the stovetop."
                         },
                         new

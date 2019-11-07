@@ -2,14 +2,16 @@
 using FoodSaverApi.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoodSaverAPI.Migrations
 {
     [DbContext(typeof(FoodSaverApiContext))]
-    partial class FoodSaverApiContextModelSnapshot : ModelSnapshot
+    [Migration("20191107213104_Imageupdate")]
+    partial class Imageupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -529,7 +531,7 @@ namespace FoodSaverAPI.Migrations
                             NutritionInfo = "15 grams of protein per serving. 5 grams of fiber per serving. Less than 5 grams of sugar per serving.",
                             PrepTime = "Prep: 15 min. Total: 20min.",
                             RecipeName = "Healthy Pre-Packaged Ramen Noodles",
-                            RecipePhoto = "https://i.imgur.com/ieg8Yau.jpg",
+                            RecipePhoto = "https://imgur.com/a/9Gg4CsC",
                             RecipeTips = "If you make four servings of this meal, you will likely have leftover eggs, tofu, and onion; double the recipe size to use almost all of these leftover ingredients and reduce the cost per serving by over 50%. Firm tofu has a mild flavor and can be supplemented into almost any recipe for extra protein, fiber, and vitamins. Refrigerate leftover ramen for up to a week (use single serving plastic or glass storage containers that are microwave safe for  readymade lunches"
                         },
                         new
@@ -541,7 +543,7 @@ namespace FoodSaverAPI.Migrations
                             NutritionInfo = "Over 10 grams of protein per serving. Approx. 8 grams of fiber per serving. High in Iron and Potassium.",
                             PrepTime = "Prep: 1 min. Total: 10 min. ",
                             RecipeName = "Peanut Butter, Banana, Honey Oatmeal",
-                            RecipePhoto = "https://i.imgur.com/aGgA4HF.jpg",
+                            RecipePhoto = "https://imgur.com/a/axCi8Jd",
                             RecipeTips = "This recipe is highyly cost effective over time; all ingredients are shelf-stable and will cost under 50 cents per serving if prepared regularly. Store leftover oatmeal in single-serving plastic or glass storage containers that are microwave safe for fast and easy breakfasts and lunches, or use leftover oatmeal mixed with nuts or chocolate chips to make healthy cookie bars; spoon oatmeal and mixins onto a baking sheet and cook at 300 degrees until lightly browned, for approx. 10 minutes."
                         },
                         new
@@ -553,7 +555,7 @@ namespace FoodSaverAPI.Migrations
                             NutritionInfo = "25g of protein per serving. About 10 grams of fiber per serving. Very high in iron and calcium.",
                             PrepTime = "Prep: 10 min. Total: 40 min. ",
                             RecipeName = "Beef Chili",
-                            RecipePhoto = "https://i.imgur.com/fWlAjFV.jpg",
+                            RecipePhoto = "https://imgur.com/a/9J4Wc8A",
                             RecipeTips = "Leftover chili can be stored in the refrigerator for up to five days can be frozen for upwards of 2 months in sealed ziploc bags and reheated from frozen on the stovetop."
                         },
                         new
@@ -565,7 +567,7 @@ namespace FoodSaverAPI.Migrations
                             NutritionInfo = "Approx. 20g of protein per serving. High in iron, potassium, and calcium.",
                             PrepTime = "Prep: 15 min. Total: 35 min. ",
                             RecipeName = "Sausage, Mushroom, and Spinach Frittata",
-                            RecipePhoto = "https://i.imgur.com/Z3nVEce.jpg",
+                            RecipePhoto = "https://imgur.com/a/kmKdWV0",
                             RecipeTips = "Leftover fritatta can be stored in the refrigerator for 3 days or frozen in ziplock bags. Individually wrap leftover slices for lunch and eat warm or cold."
                         });
                 });
