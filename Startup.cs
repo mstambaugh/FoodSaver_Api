@@ -21,7 +21,7 @@ namespace FoodSaverApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddDbContext<FoodSaverApiContext>(opts => opts.UseMySql(Configuration["ConnectionString"]));    
+            services.AddDbContext<FoodSaverApiContext>(opts => opts.UseMySql(Configuration.GetConnectionString("DefaultConnection")));    
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
